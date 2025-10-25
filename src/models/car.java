@@ -1,7 +1,8 @@
 package models;
 import interfaces.rentable;
+import java.io.Serializable;
 
-public class car implements rentable {
+public class car implements rentable,Serializable  {
     private String id;
     private String brand;
     private String model;
@@ -25,7 +26,7 @@ public class car implements rentable {
     public void rentcar(int days) {
         if (available) {
             double total = calculaterent(days);
-            System.out.println( model + " rented for " + days + " days. Total: $" + total);
+            System.out.println( model + " rented for " + days + " days. Total: Nrs." + total);
             available = false; // mark as rented
         } else {
             System.out.println(" Car already rented.");
@@ -49,7 +50,7 @@ public class car implements rentable {
 
     public String toString() {
         return "[" + id + "] " + brand + " " + model +
-                " | $" + pricePerDay + "/day | " +
+                " | Nrs." + pricePerDay + "/day | " +
                 (available ? "Available" : "Rented");
     }
 }
